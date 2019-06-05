@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Avinash  Tag on 05/06/2019.
+  Copyright © 2019 Avinash  Tag. All rights reserved.
+*/
+
+
+"AppName" = "Weather";
+"Okay" = "OK";
+"Yes" = "Yes";
+"No" = "No";
+"somethingWrong" = "Something went wrong";

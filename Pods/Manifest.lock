@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: 4fcca3a603b6b335e65d5597c13a701ca3b81ee8
+PODS:
+  - DataCache (1.5)
+
+DEPENDENCIES:
+  - DataCache
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DataCache
+
+SPEC CHECKSUMS:
+  DataCache: 8099e01aa35c2fd30f3410aae14ef5a130f6524b
+
+PODFILE CHECKSUM: 60199f15b96a029ef04f7d6a7db06eba867e9342
 
 COCOAPODS: 1.6.1

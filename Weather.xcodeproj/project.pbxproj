@@ -39,6 +39,18 @@
 		B90A55CD22A7A2DE0099E38D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55CC22A7A2DE0099E38D /* Constants.swift */; };
 		B90A55CE22A7A2DE0099E38D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55CC22A7A2DE0099E38D /* Constants.swift */; };
 		B90A55CF22A7A2DE0099E38D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55CC22A7A2DE0099E38D /* Constants.swift */; };
+		B90A55D622A7A5AD0099E38D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B90A55DA22A7A5AD0099E38D /* Localizable.strings */; };
+		B90A55D722A7A5AD0099E38D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B90A55DA22A7A5AD0099E38D /* Localizable.strings */; };
+		B90A55D822A7A5AD0099E38D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B90A55DA22A7A5AD0099E38D /* Localizable.strings */; };
+		B90A55DC22A7A6FC0099E38D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DB22A7A6FC0099E38D /* EndPoint.swift */; };
+		B90A55DD22A7A6FC0099E38D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DB22A7A6FC0099E38D /* EndPoint.swift */; };
+		B90A55DE22A7A6FC0099E38D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DB22A7A6FC0099E38D /* EndPoint.swift */; };
+		B90A55E022A7A7A60099E38D /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DF22A7A7A60099E38D /* Client.swift */; };
+		B90A55E122A7A7A60099E38D /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DF22A7A7A60099E38D /* Client.swift */; };
+		B90A55E222A7A7A60099E38D /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55DF22A7A7A60099E38D /* Client.swift */; };
+		B90A55E422A7A8170099E38D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55E322A7A8170099E38D /* APIClient.swift */; };
+		B90A55E522A7A8170099E38D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55E322A7A8170099E38D /* APIClient.swift */; };
+		B90A55E622A7A8170099E38D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55E322A7A8170099E38D /* APIClient.swift */; };
 		F23B11C70C009F5979887883 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1B44C6E4396881587AD740 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +98,10 @@
 		B90A55B322A79F0D0099E38D /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		B90A55C722A7A16D0099E38D /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		B90A55CC22A7A2DE0099E38D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B90A55D922A7A5AD0099E38D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B90A55DB22A7A6FC0099E38D /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		B90A55DF22A7A7A60099E38D /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		B90A55E322A7A8170099E38D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		ED1B44C6E4396881587AD740 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0716CF6FD407153A321CD /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		FADD81D2321736151C62A898 /* Pods-WeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherTests.release.xcconfig"; path = "Target Support Files/Pods-WeatherTests/Pods-WeatherTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +226,7 @@
 		B90A55C622A79F370099E38D /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				B90A55DA22A7A5AD0099E38D /* Localizable.strings */,
 				B90A558322A79D4D0099E38D /* Main.storyboard */,
 				B90A558622A79D4F0099E38D /* Assets.xcassets */,
 				B90A558822A79D4F0099E38D /* LaunchScreen.storyboard */,
@@ -222,6 +239,9 @@
 			isa = PBXGroup;
 			children = (
 				B90A55CC22A7A2DE0099E38D /* Constants.swift */,
+				B90A55DB22A7A6FC0099E38D /* EndPoint.swift */,
+				B90A55DF22A7A7A60099E38D /* Client.swift */,
+				B90A55E322A7A8170099E38D /* APIClient.swift */,
 			);
 			path = "Weather Api";
 			sourceTree = "<group>";
@@ -237,6 +257,7 @@
 				B90A557822A79D4D0099E38D /* Sources */,
 				B90A557922A79D4D0099E38D /* Frameworks */,
 				B90A557A22A79D4D0099E38D /* Resources */,
+				90299A4FE6FC552D493B9F16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A558A22A79D4F0099E38D /* LaunchScreen.storyboard in Resources */,
+				B90A55D622A7A5AD0099E38D /* Localizable.strings in Resources */,
 				B90A558722A79D4F0099E38D /* Assets.xcassets in Resources */,
 				B90A558522A79D4D0099E38D /* Main.storyboard in Resources */,
 			);
@@ -343,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90A55D722A7A5AD0099E38D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90A55D822A7A5AD0099E38D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +400,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90299A4FE6FC552D493B9F16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DataCache/DataCache.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DataCache.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4D9C7C958BE8EA850A4C665 /* [CP] Check Pods Manifest.lock */ = {
@@ -431,13 +477,16 @@
 			files = (
 				B90A55C022A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A558022A79D4D0099E38D /* AppDelegate.swift in Sources */,
+				B90A55DC22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55BD22A79F0D0099E38D /* DashboardModels.swift in Sources */,
+				B90A55E022A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55BA22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
 				B90A55C822A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55B722A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55B422A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
 				B90A55C322A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55CD22A7A2DE0099E38D /* Constants.swift in Sources */,
+				B90A55E422A7A8170099E38D /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,13 +496,16 @@
 			files = (
 				B90A559522A79D4F0099E38D /* WeatherTests.swift in Sources */,
 				B90A55C122A79F0D0099E38D /* DashboardViewController.swift in Sources */,
+				B90A55DD22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55BB22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
+				B90A55E122A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C422A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55C922A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55B522A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
 				B90A55BE22A79F0D0099E38D /* DashboardModels.swift in Sources */,
 				B90A55B822A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55CE22A7A2DE0099E38D /* Constants.swift in Sources */,
+				B90A55E522A7A8170099E38D /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,13 +515,16 @@
 			files = (
 				B90A55A022A79D4F0099E38D /* WeatherUITests.swift in Sources */,
 				B90A55C222A79F0D0099E38D /* DashboardViewController.swift in Sources */,
+				B90A55DE22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55BC22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
+				B90A55E222A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C522A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55CA22A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55B622A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
 				B90A55BF22A79F0D0099E38D /* DashboardModels.swift in Sources */,
 				B90A55B922A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55CF22A7A2DE0099E38D /* Constants.swift in Sources */,
+				B90A55E622A7A8170099E38D /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +560,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		B90A55DA22A7A5AD0099E38D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B90A55D922A7A5AD0099E38D /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -512,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -573,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
