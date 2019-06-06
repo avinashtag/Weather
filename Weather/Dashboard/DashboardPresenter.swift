@@ -44,7 +44,9 @@ class DashboardPresenter: DashboardPresentationLogic
     }
     
     private func sendError(error:Constant.Error = Constant.Error()){
-        self.viewController?.display(error: error)
+        DispatchQueue.main.async {
+            self.viewController?.display(error: error)
+        }
     }
 
     private func parse(weather: Weather.Result) -> [Weather.Data] {

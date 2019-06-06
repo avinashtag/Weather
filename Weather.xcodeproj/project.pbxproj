@@ -60,6 +60,12 @@
 		B90A55F122A82A6F0099E38D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F022A82A6F0099E38D /* Date+Extension.swift */; };
 		B90A55F222A82A6F0099E38D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F022A82A6F0099E38D /* Date+Extension.swift */; };
 		B90A55F322A82A6F0099E38D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F022A82A6F0099E38D /* Date+Extension.swift */; };
+		B90A55F622A94F3B0099E38D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */; };
+		B90A55F722A94F3B0099E38D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */; };
+		B90A55F822A94F3B0099E38D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */; };
+		B90A55FA22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
+		B90A55FB22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
+		B90A55FC22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
 		F23B11C70C009F5979887883 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1B44C6E4396881587AD740 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +120,8 @@
 		B90A55E722A7AB990099E38D /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		B90A55EC22A7C83E0099E38D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B90A55F022A82A6F0099E38D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B90A55F922A954DD0099E38D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ED1B44C6E4396881587AD740 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0716CF6FD407153A321CD /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		FADD81D2321736151C62A898 /* Pods-WeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherTests.release.xcconfig"; path = "Target Support Files/Pods-WeatherTests/Pods-WeatherTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +273,8 @@
 			children = (
 				B90A55EC22A7C83E0099E38D /* String+Extension.swift */,
 				B90A55F022A82A6F0099E38D /* Date+Extension.swift */,
+				B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */,
+				B90A55F922A954DD0099E38D /* UITableView+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -498,11 +508,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90A55F622A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
 				B90A55C022A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A558022A79D4D0099E38D /* AppDelegate.swift in Sources */,
 				B90A55DC22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55E822A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BD22A79F0D0099E38D /* DashboardModels.swift in Sources */,
+				B90A55FA22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
 				B90A55F122A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E022A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55BA22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
@@ -520,11 +532,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90A55F722A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
 				B90A559522A79D4F0099E38D /* WeatherTests.swift in Sources */,
 				B90A55C122A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A55DD22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55E922A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BB22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
+				B90A55FB22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
 				B90A55F222A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E122A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C422A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
@@ -542,11 +556,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90A55F822A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
 				B90A55A022A79D4F0099E38D /* WeatherUITests.swift in Sources */,
 				B90A55C222A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A55DE22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55EA22A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BC22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
+				B90A55FC22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
 				B90A55F322A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E222A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C522A79F0D0099E38D /* DashboardInteractor.swift in Sources */,

@@ -85,7 +85,10 @@ class DashboardViewController: UIViewController
         citySelectionController.presentationLogic = self
         cityName.rightView = rightView
         cityName.rightViewMode = .always
-        interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
+        weatherDetailList.addRefreshControl(title: Localisable.refreshMessage) {
+            self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
+        }
+        self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
     }
     
     func reloadView()  {
@@ -160,11 +163,17 @@ extension DashboardViewController: UITableViewDataSource{
 extension DashboardViewController: DashboardDisplayLogic{
     
     func display(error: Constant.Error) {
-        
+
+        weatherDetailList.refreshControl?.endRefreshing()
+        let dataSource = Weather.Datasource()
+        self.display(weather: [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind])
+        self.present(error: error) {
+            
+        }
     }
     
     func display(weather: [Weather.Data]) {
-        
+        weatherDetailList.refreshControl?.endRefreshing()
         self.weather = weather
         self.reloadView()
     }
@@ -180,8 +189,12 @@ extension DashboardViewController: SelectionPresentationLogic{
         return cityDaSource.cities.count
     }
     
-    func titleForRowAt( indexPath: IndexPath) -> String{
-        return cityDaSource.cities[indexPath.row].name
+    func titleForRowAt( indexPath: IndexPath) -> (String, UITableViewCell.AccessoryType){
+        var accessory = UITableViewCell.AccessoryType.none
+        if cityDaSource.cities[indexPath.row] == cityDaSource.selected{
+            accessory = UITableViewCell.AccessoryType.checkmark
+        }
+        return (cityDaSource.cities[indexPath.row].name, accessory)
     }
     
     func didSelectRowAt(indexPath: IndexPath) {
@@ -199,4 +212,9 @@ extension DashboardViewController: UIPopoverPresentationControllerDelegate{
     public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
+}
+
+
+extension Localisable{
+    static let refreshMessage = "RefreshMessage".localized()
 }

@@ -12,7 +12,7 @@ protocol SelectionPresentationLogic
 {
     func numberOfSections() -> Int
     func numberOfRowsInSection( section: Int) -> Int
-    func titleForRowAt( indexPath: IndexPath) -> String
+    func titleForRowAt( indexPath: IndexPath) -> (String, UITableViewCell.AccessoryType)
     func didSelectRowAt( indexPath: IndexPath)
 }
 
@@ -48,7 +48,9 @@ class SelectionViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        cell.name.text = presentationLogic?.titleForRowAt(indexPath: indexPath)
+        let (name, accessory) = (presentationLogic?.titleForRowAt(indexPath: indexPath))!
+        cell.name.text = name
+        cell.accessoryType = accessory
         return cell
     }
     

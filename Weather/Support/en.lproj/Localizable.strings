@@ -22,3 +22,5 @@
 "Sydney" = "Sydney";
 "Melbourne" = "Melbourne";
 "Wollongong" = "Wollongong";
+"error" = "Error";
+"RefreshMessage" = "Refreshing Weather Data";
