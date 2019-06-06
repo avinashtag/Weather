@@ -55,6 +55,7 @@ class DashboardPresenter: DashboardPresentationLogic
         }
         dataSource.temperature.info = "\(weather.main.temp) F"
         dataSource.wind.info = "\(weather.wind.speed) miles/h"
+        dataSource.updatedTime.info = weather.updateTime ?? Date().weatherDate()
 
 
         return [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind]

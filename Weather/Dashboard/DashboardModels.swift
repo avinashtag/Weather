@@ -13,12 +13,12 @@ enum Weather
 
     // MARK: - Request
     struct Request: Codable {
-        let zip: Int
-        let countryCode: String
+        let cityName: String
+        let country: String
         let appid : String
         
         func queryParameter() -> [URLQueryItem] {
-            return [URLQueryItem(name: "zip", value: "\(zip),\(countryCode)"),
+            return [URLQueryItem(name: "q", value: "\(cityName),\(country)"),
             URLQueryItem(name: "appid", value: "\(appid)")]
         }
     }
@@ -52,6 +52,11 @@ enum Weather
         let id: Int
         let name: String
         let cod: Int
+        var updateTime: String? {
+            get{
+                return Date(timeIntervalSince1970: TimeInterval(integerLiteral: Int64(dt))).weatherDate()
+            }
+        }
     }
     
     // MARK: - Clouds
@@ -104,13 +109,18 @@ enum Weather
     }
     
     struct Selection {
-        let cities : [Data] = [Data(name: Localisable.sydney, info: "2000,au"), Data(name: Localisable.melbourne, info: "32901,au"), Data(name: Localisable.wollongong, info: "2500,au")]
-        var selected: Data = Data(name: Localisable.sydney, info: "2000,au")
+        let cities : [City] = [City(name: Localisable.sydney, country: "au"), City(name: Localisable.melbourne, country: "au"), City(name: Localisable.wollongong, country: "au")]
+        var selected: City = City(name: Localisable.sydney, country: "au")
+    }
+    
+    struct  City : Codable{
+        let name: String
+        let country: String
     }
     
     struct Datasource: Codable {
         var city: Data = Data(name: Localisable.city, info: "-")
-        var updatedTime: Data = Data(name: Localisable.updatedTime, info: Date().string(format: "EEEE hh:mm a"))
+        var updatedTime: Data = Data(name: Localisable.updatedTime, info: Date().weatherDate())
         var weatherInfo: Data = Data(name: Localisable.weather, info: "-")
         var temperature: Data = Data(name: Localisable.temperature, info: "-")
         var wind: Data = Data(name: Localisable.wind, info: "-")

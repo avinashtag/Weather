@@ -80,13 +80,18 @@ class DashboardViewController: UIViewController
     {
         super.viewDidLoad()
         
+        cityName.text = cityDaSource.selected.name
         citySelectionController = self.storyboard?.instantiateViewController(withIdentifier: "SelectionViewControllerID") as? SelectionViewController
         citySelectionController.presentationLogic = self
         cityName.rightView = rightView
         cityName.rightViewMode = .always
-        interactor?.currentWeather(request: Weather.Request(zip: 94040, countryCode: "us", appid: Constant.apiKey))
+        interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
     }
     
+    func reloadView()  {
+        self.weather[0].info = cityDaSource.selected.name
+        self.weatherDetailList.reloadData()
+    }
     
 }
 
@@ -161,7 +166,7 @@ extension DashboardViewController: DashboardDisplayLogic{
     func display(weather: [Weather.Data]) {
         
         self.weather = weather
-        self.weatherDetailList.reloadData()
+        self.reloadView()
     }
 }
 
@@ -183,6 +188,7 @@ extension DashboardViewController: SelectionPresentationLogic{
         citySelectionController.dismiss(animated: true) {
             self.cityDaSource.selected = self.cityDaSource.cities[indexPath.row]
             self.cityName.text = self.cityDaSource.selected.name
+            self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
         }
     }
     
