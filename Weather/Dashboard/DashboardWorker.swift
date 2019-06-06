@@ -8,9 +8,21 @@
 
 import UIKit
 
-class DashboardWorker
+class DashboardWorker: Client
 {
-  func doSomeWork()
-  {
-  }
+
+    func currentWeather(request: Weather.Request,_ completionHandler:  @escaping (APIResult<Weather.Result?, APIError>) -> Void) {
+        
+        var endpoint = Calls.weather
+        endpoint.queryParams = request.queryParameter()
+        var urlRequest = endpoint.urlRequest
+        urlRequest.httpMethod = Constant.GET
+        urlRequest.setValue(Constant.CONTENT_TYPE_VALUE, forHTTPHeaderField:Constant.CONTENT_TYPE)
+        
+        fetch(with: urlRequest, decode: { json -> Weather.Result? in
+            guard let result = json as? Weather.Result else { return  nil }
+            return result
+        }, completion: completionHandler)
+    }
+
 }

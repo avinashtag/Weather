@@ -10,7 +10,7 @@ import UIKit
 
 protocol DashboardBusinessLogic
 {
-  func doSomething(request: Dashboard.Something.Request)
+    func currentWeather(request: Weather.Request)
 }
 
 protocol DashboardDataStore
@@ -24,14 +24,13 @@ class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore
   var worker: DashboardWorker?
   //var name: String = ""
   
-  // MARK: Do something
+  // MARK: Fetch Current Weather
   
-  func doSomething(request: Dashboard.Something.Request)
+  func currentWeather(request: Weather.Request)
   {
     worker = DashboardWorker()
-    worker?.doSomeWork()
-    
-    let response = Dashboard.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker?.currentWeather(request: request, { (result) in
+        self.presenter?.presentWeather(result: result)
+    })
   }
 }

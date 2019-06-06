@@ -10,16 +10,22 @@ import UIKit
 
 protocol DashboardDisplayLogic: class
 {
-  func displaySomething(viewModel: Dashboard.Something.ViewModel)
+    func display(error: Constant.Error)
+    func display(weather: [Weather.Data])
 }
 
-class DashboardViewController: UIViewController, DashboardDisplayLogic
+class DashboardViewController: UIViewController
 {
-    
-    
+
     @IBOutlet weak var weatherDetailList: UITableView!
-    
-    
+    @IBOutlet weak var weatherDetailListHeader: UIView!
+    @IBOutlet weak var cityName: UITextField!
+    @IBOutlet weak var rightView: UIView!
+
+    private var weather: [Weather.Data]!
+    private var cityDaSource: Weather.Selection!
+    private var citySelectionController: SelectionViewController!
+
     var interactor: DashboardBusinessLogic?
     var router: (NSObjectProtocol & DashboardRoutingLogic & DashboardDataPassing)?
     
@@ -51,6 +57,9 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+        let dataSource = Weather.Datasource()
+        weather = [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind]
+        cityDaSource = Weather.Selection()
     }
     
     // MARK: Routing
@@ -70,21 +79,118 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
+        
+        citySelectionController = self.storyboard?.instantiateViewController(withIdentifier: "SelectionViewControllerID") as? SelectionViewController
+        citySelectionController.presentationLogic = self
+        cityName.rightView = rightView
+        cityName.rightViewMode = .always
+        interactor?.currentWeather(request: Weather.Request(zip: 94040, countryCode: "us", appid: Constant.apiKey))
     }
     
-    // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
+}
+
+extension DashboardViewController: UITextFieldDelegate{
     
-    func doSomething()
-    {
-        let request = Dashboard.Something.Request()
-        interactor?.doSomething(request: request)
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        showCitySelection()
+        return false
     }
     
-    func displaySomething(viewModel: Dashboard.Something.ViewModel)
-    {
-        //nameTextField.text = viewModel.name
+    func showCitySelection(){
+      
+        let anchor = cityName.bounds
+        guard let popover = citySelectionController else { return }
+        popover.tableView.reloadData()
+        
+        let maxContentSize = CGSize(width: self.view.bounds.width * 0.8, height: (self.view.bounds.height - anchor.origin.y) * 0.8)
+        
+        popover.preferredContentSize = popover.prefferedSize(maxSize: maxContentSize)
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        popover.popoverPresentationController?.delegate =  self
+        popover.popoverPresentationController?.sourceView = cityName
+        popover.popoverPresentationController?.sourceRect = anchor
+        popover.popoverPresentationController?.permittedArrowDirections = .up
+        
+        self.present(popover, animated: true) {
+            
+        }
+
+    }
+}
+
+
+extension DashboardViewController: UITableViewDelegate{
+    
+}
+
+extension DashboardViewController: UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weather.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as? WeatherCell else { return UITableViewCell() }
+        
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.black.cgColor
+
+        let data = weather[indexPath.row]
+        cell.name.text = data.name
+        cell.value.text = data.info
+        return cell
+    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return self.weatherDetailListHeader
+//    }
+}
+
+extension DashboardViewController: DashboardDisplayLogic{
+    
+    func display(error: Constant.Error) {
+        
+    }
+    
+    func display(weather: [Weather.Data]) {
+        
+        self.weather = weather
+        self.weatherDetailList.reloadData()
+    }
+}
+
+
+extension DashboardViewController: SelectionPresentationLogic{
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
+    func numberOfRowsInSection(section: Int) -> Int {
+        return cityDaSource.cities.count
+    }
+    
+    func titleForRowAt( indexPath: IndexPath) -> String{
+        return cityDaSource.cities[indexPath.row].name
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        citySelectionController.dismiss(animated: true) {
+            self.cityDaSource.selected = self.cityDaSource.cities[indexPath.row]
+            self.cityName.text = self.cityDaSource.selected.name
+        }
+    }
+    
+    
+}
+
+extension DashboardViewController: UIPopoverPresentationControllerDelegate{
+    public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
 }

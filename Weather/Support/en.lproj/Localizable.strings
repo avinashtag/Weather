@@ -12,3 +12,13 @@
 "Yes" = "Yes";
 "No" = "No";
 "somethingWrong" = "Something went wrong";
+"responseNull" = "No data found for selected city.";
+"City" = "City";
+"UpdatedTime" = "Updated time";
+"Weather" = "Weather";
+"Temperature" = "Temperature";
+"Wind" = "Wind";
+
+"Sydney" = "Sydney";
+"Melbourne" = "Melbourne";
+"Wollongong" = "Wollongong";

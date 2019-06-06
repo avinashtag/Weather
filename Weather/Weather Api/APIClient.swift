@@ -23,7 +23,7 @@ enum APIError: Error {
     case responseUnsuccessful(String)
     case noNetwork
     case jsonParsingFailure
-    case notFound(String) // just to handle user deactivated
+    case notFound(String) 
     
     struct ErrorResponse: Codable
     {
@@ -83,7 +83,7 @@ extension APIClient {
             guard error == nil else{
                 self.onConsole(url: nil, response: error!.localizedDescription)
                 
-                guard (error as NSError?)?.code != -1009 || request.httpMethod == AZConstants.GET else{
+                guard (error as NSError?)?.code != -1009 || request.httpMethod == Constant.GET else{
                     completion(nil, .noNetwork)
                     return
                 }
@@ -112,13 +112,8 @@ extension APIClient {
             self.onConsole(url: nil, response: String(data: data, encoding: String.Encoding.utf8))
             guard httpResponse.statusCode != 401 else{
                 
-                //                let genericModel = try? JSONDecoder().decode(APIError.ErrorResponse.self, from: data)
                 let errormessage = Localisable.unauthorizedAccess
-                Activity.flash(.labeledError(title: Localisable.unauthorizedAccessTitle, subtitle: errormessage), delay: 3.0)
-                DispatchQueue.main.async {
-                    let _ = AppUtility.sharedInstance.deleteAuthTokenAZ()
-                    (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                }
+
                 return
             }
             guard httpResponse.statusCode != 404 else{
@@ -143,7 +138,7 @@ extension APIClient {
             do{
                 //MARK: Success Case APIError is nil
                 let genericModel = try JSONDecoder().decode(decodingType, from: data)
-                if request.httpMethod == AZConstants.GET{
+                if request.httpMethod == Constant.GET{
                     DataCache.instance.write(data: data, forKey: request.url?.absoluteString ?? "key")
                 }
                 completion(genericModel, nil)

@@ -40,7 +40,7 @@ extension Endpoint {
 }
 
 enum Calls {
-
+    case weather
 }
 
 extension Calls: Endpoint {
@@ -59,13 +59,14 @@ extension Calls: Endpoint {
     }
     
     var base: String {
-        let env = "https://\(Bundle.main.infoDictionary!["API_ENDPOINT"] as! String)"
+        let env = "http://\(Bundle.main.infoDictionary!["API_ENDPOINT"] as! String)"
         return env
     }
     
     var path: String {
         switch self {
-        
+            
+        case let .weather : return Constant.API.weatherEndPoint
         }
     }
 }

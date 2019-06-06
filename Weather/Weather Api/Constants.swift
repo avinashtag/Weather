@@ -12,7 +12,7 @@ import Foundation
 struct Constant {
     
     struct API {
-        
+        static let weatherEndPoint = "/data/2.5/weather"
     }
     
     struct Error {
@@ -24,6 +24,7 @@ struct Constant {
     static let CONTENT_TYPE = "Content-Type"
     static let AUTHENTICATION_CONTENT_TYPE = "application/x-www-form-urlencoded"
     static let CONTENT_TYPE_VALUE = "application/json"
+    static let apiKey = "ba95e21bb1d15138195f08524427ee63"
 
 }
 
@@ -34,5 +35,6 @@ struct Localisable {
     static let Yes = "Yes".localized()
     static let No = "No".localized()
     static let somethingWrong = "somethingWrong".localized()
+    static let responseNull = "responseNull".localized()
 
 }
