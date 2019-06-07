@@ -15,7 +15,7 @@ protocol DashboardBusinessLogic
 
 protocol DashboardDataStore
 {
-  //var name: String { get set }
+
 }
 
 class DashboardInteractor: DashboardBusinessLogic, DashboardDataStore

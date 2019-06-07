@@ -66,7 +66,7 @@ extension Calls: Endpoint {
     var path: String {
         switch self {
             
-        case let .weather : return Constant.API.weatherEndPoint
+        case .weather : return Constant.API.weatherEndPoint
         }
     }
 }

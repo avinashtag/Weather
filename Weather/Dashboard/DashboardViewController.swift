@@ -80,6 +80,7 @@ class DashboardViewController: UIViewController
     {
         super.viewDidLoad()
         
+        weatherDetailList.accessibilityIdentifier = "weatherDetailList"
         cityName.text = cityDaSource.selected.name
         citySelectionController = self.storyboard?.instantiateViewController(withIdentifier: "SelectionViewControllerID") as? SelectionViewController
         citySelectionController.presentationLogic = self
@@ -97,6 +98,8 @@ class DashboardViewController: UIViewController
     }
     
 }
+
+// MARK: Textfield Delegate
 
 extension DashboardViewController: UITextFieldDelegate{
     
@@ -127,10 +130,13 @@ extension DashboardViewController: UITextFieldDelegate{
     }
 }
 
+// MARK: Tableview Delegate
 
 extension DashboardViewController: UITableViewDelegate{
     
 }
+
+// MARK: Tableview Datasource
 
 extension DashboardViewController: UITableViewDataSource{
     
@@ -155,10 +161,9 @@ extension DashboardViewController: UITableViewDataSource{
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return self.weatherDetailListHeader
-//    }
 }
+
+// MARK: DashboardDisplayLogic
 
 extension DashboardViewController: DashboardDisplayLogic{
     
@@ -179,6 +184,7 @@ extension DashboardViewController: DashboardDisplayLogic{
     }
 }
 
+// MARK: SelectionPresentationLogic
 
 extension DashboardViewController: SelectionPresentationLogic{
     func numberOfSections() -> Int {

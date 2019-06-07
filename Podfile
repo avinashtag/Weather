@@ -11,11 +11,14 @@ target 'Weather' do
   target 'WeatherTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'DataCache'
   end
 
   target 'WeatherUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'DataCache'
+
   end
 
 end

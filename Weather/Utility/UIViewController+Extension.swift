@@ -11,6 +11,7 @@ import UIKit
 
 extension UIViewController{
     
+    // Presesent error alert with message 
     func present(error: Constant.Error, completion: ( ()-> Void)? ) {
         DispatchQueue.main.async {
             UINotificationFeedbackGenerator().notificationOccurred(.error)

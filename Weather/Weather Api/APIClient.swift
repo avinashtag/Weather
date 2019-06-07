@@ -112,7 +112,6 @@ extension APIClient {
             self.onConsole(url: nil, response: String(data: data, encoding: String.Encoding.utf8))
             guard httpResponse.statusCode != 401 else{
                 
-                let errormessage = Localisable.unauthorizedAccess
 
                 return
             }

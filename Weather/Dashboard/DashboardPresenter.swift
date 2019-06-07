@@ -17,7 +17,7 @@ class DashboardPresenter: DashboardPresentationLogic
 {
   weak var viewController: DashboardDisplayLogic?
   
-  // MARK: Do something
+  // MARK: present weather result check sucess and error
   
     func presentWeather(result: APIResult<Weather.Result?, APIError>)
     {
@@ -43,12 +43,17 @@ class DashboardPresenter: DashboardPresentationLogic
         
     }
     
+}
+
+// Extenstion Utility methods
+extension DashboardPresenter{
+    
     private func sendError(error:Constant.Error = Constant.Error()){
         DispatchQueue.main.async {
             self.viewController?.display(error: error)
         }
     }
-
+    
     private func parse(weather: Weather.Result) -> [Weather.Data] {
         
         var dataSource = Weather.Datasource()
@@ -58,13 +63,13 @@ class DashboardPresenter: DashboardPresentationLogic
         dataSource.temperature.info = "\(weather.main.temp) F"
         dataSource.wind.info = "\(weather.wind.speed) miles/h"
         dataSource.updatedTime.info = weather.updateTime ?? Date().weatherDate()
-
-
+        
+        
         return [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind]
         
     }
-}
 
+}
 
 extension Localisable{
     
