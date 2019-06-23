@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +15,37 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eaJ-CQ-exz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dis-Hn-dri">
+                                <rect key="frame" x="99.5" y="412" width="215" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.9498400092124939" green="0.54329794645309448" blue="0.19055038690567017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powerdby" translatesAutoresizingMaskIntoConstraints="NO" id="EtA-x0-Jda">
+                                <rect key="frame" x="104" y="494" width="206" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EtA-x0-Jda" secondAttribute="height" multiplier="1746:424" id="PbD-7q-Urv"/>
+                                    <constraint firstAttribute="height" constant="50" id="yIB-Ln-uuV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dis-Hn-dri" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2z8-uy-tY6"/>
+                            <constraint firstItem="dis-Hn-dri" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3Hh-nz-3AB"/>
+                            <constraint firstItem="EtA-x0-Jda" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Isd-FR-qN2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eaJ-CQ-exz" secondAttribute="trailing" id="JCa-Ty-QMD"/>
+                            <constraint firstItem="eaJ-CQ-exz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="S2e-mb-web"/>
+                            <constraint firstAttribute="bottom" secondItem="eaJ-CQ-exz" secondAttribute="bottom" id="brB-07-E4e"/>
+                            <constraint firstItem="eaJ-CQ-exz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="wee-oD-NdA"/>
+                            <constraint firstItem="EtA-x0-Jda" firstAttribute="top" secondItem="dis-Hn-dri" secondAttribute="bottom" constant="10" id="xen-KD-2Q6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +54,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="320" height="480"/>
+        <image name="powerdby" width="1746" height="424"/>
+    </resources>
 </document>

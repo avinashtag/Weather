@@ -35,8 +35,8 @@ enum APIError: Error {
         case .requestFailed: return "Request Failed"
         case .invalidData: return "Invalid Data"
         case let .responseUnsuccessful ( error): return error
-        case .jsonParsingFailure: return Localisable.somethingWrong
-        case .jsonConversionFailure: return Localisable.somethingWrong
+        case .jsonParsingFailure: return Localisable.jsonParsing
+        case .jsonConversionFailure: return Localisable.jsonFailure
         case .noNetwork: return "The Internet connection appears to be offline"
         case let .notFound (error) : return  error
         }

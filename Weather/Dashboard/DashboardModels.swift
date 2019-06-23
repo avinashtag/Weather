@@ -10,6 +10,17 @@ import UIKit
 
 enum Weather
 {
+    
+    struct View: Codable {
+        
+        var city: String = "--"
+        var temprature: String = "--"
+        var wind: String = "--"
+        var weatherConditionShort: String = "--"
+        var weatherCondition: String = "--"
+        var updateTime: String = "--"
+        var imageUrl: URL?
+    }
 
     // MARK: - Request
     struct Request: Codable {
@@ -21,21 +32,6 @@ enum Weather
             return [URLQueryItem(name: "q", value: "\(cityName),\(country)"),
             URLQueryItem(name: "appid", value: "\(appid)")]
         }
-    }
-
-    struct ResultCheck: Codable {
-        let coord: Coord
-        let weather: [Climate]
-        let base: String
-        let main: Main
-        let visibility: Int
-        let wind: Wind
-        let clouds: Clouds
-        let dt: Int
-        let sys: Sys
-        let id: Int
-        let name: String
-        let cod: Int
     }
     
     // MARK: - Result
@@ -57,6 +53,8 @@ enum Weather
                 return Date(timeIntervalSince1970: TimeInterval(integerLiteral: Int64(dt))).weatherDate()
             }
         }
+        
+        
     }
     
     // MARK: - Clouds
@@ -108,31 +106,10 @@ enum Weather
         let deg: Int
     }
     
-    struct Selection {
-        let cities : [City] = [City(name: Localisable.sydney, country: "au"), City(name: Localisable.melbourne, country: "au"), City(name: Localisable.wollongong, country: "au")]
-        var selected: City = City(name: Localisable.sydney, country: "au")
-    }
-    
-    struct  City : Codable{
-        let name: String
-        let country: String
-        
-        static func == (lhs:City, rhs: City) -> Bool {
-            return ((lhs.name == rhs.name) && lhs.country == rhs.country)
-        }
-    }
-    
-    struct Datasource: Codable {
-        var city: Data = Data(name: Localisable.city, info: "-")
-        var updatedTime: Data = Data(name: Localisable.updatedTime, info: Date().weatherDate())
-        var weatherInfo: Data = Data(name: Localisable.weather, info: "-")
-        var temperature: Data = Data(name: Localisable.temperature, info: "-")
-        var wind: Data = Data(name: Localisable.wind, info: "-")
-    }
-    
     struct Data: Codable {
         
         var name: String
         var info: String
     }
+
 }

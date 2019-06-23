@@ -13,11 +13,14 @@
 "No" = "No";
 "somethingWrong" = "Something went wrong";
 "responseNull" = "No data found for selected city.";
+"jsonFailure" = "Json conversion failure.";
+"jsonParsing" = "Json parsing failure";
 "City" = "City";
-"UpdatedTime" = "Updated time";
+"UpdatedTime" = "Updated Time: %@";
 "Weather" = "Weather";
 "Temperature" = "Temperature";
-"Wind" = "Wind";
+"Wind" = "Wind: %@";
+"weatherDetail" = "Today: %@";
 
 "Sydney" = "Sydney";
 "Melbourne" = "Melbourne";

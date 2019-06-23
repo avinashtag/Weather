@@ -54,18 +54,43 @@ extension DashboardPresenter{
         }
     }
     
-    private func parse(weather: Weather.Result) -> [Weather.Data] {
+    private func parse(weather: Weather.Result) -> Weather.View {
         
-        var dataSource = Weather.Datasource()
-        if let weatherInfo = weather.weather.first?.weatherDescription{
-            dataSource.weatherInfo.info = weatherInfo
+        let theme = viewController!.currentTheme
+        var model = Weather.View()
+        
+        model.city = theme.city.name
+        model.updateTime = weather.updateTime ?? Date().weatherDate()
+        if theme.temprature == .celcius{
+            //TODO:: Convert into celcius
+            model.temprature = "\(weather.main.temp.celcius()) °C"
         }
-        dataSource.temperature.info = "\(weather.main.temp) F"
-        dataSource.wind.info = "\(weather.wind.speed) miles/h"
-        dataSource.updatedTime.info = weather.updateTime ?? Date().weatherDate()
-        
-        
-        return [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind]
+        else{
+            model.temprature = "\(weather.main.temp.fahrenheit()) °F"
+        }
+        if theme.wind == .kilometerPerHour{
+            //TODO:: Convert into kilometerPerHour
+            model.wind = String(format: Localisable.wind,"\(weather.wind.speed.kmPerHr()) km/h")
+        }
+        else{
+            model.wind = String(format: Localisable.wind,"\(weather.wind.speed.milesPerHr()) miles/h")
+        }
+
+        if let weathershort = weather.weather.first?.main{
+            model.weatherConditionShort = weathershort
+        }
+        if let weatherInfo = weather.weather.first?.weatherDescription{
+            model.weatherCondition =  String(format: Localisable.weatherDetail ,weatherInfo)
+        }
+        if let weatherIcon = weather.weather.first?.icon{
+            let endpoint = Calls.weatherIcon(weatherIcon)
+            if let imageurl = endpoint.imageUrl{
+                model.imageUrl =  imageurl
+            }
+        }
+
+        model.updateTime =  String(format: Localisable.updatedTime ,weather.updateTime ?? Date().weatherDate())  
+        return model
         
     }
 
@@ -78,6 +103,7 @@ extension Localisable{
     static let weather = "Weather".localized()
     static let temperature = "Temperature".localized()
     static let wind = "Wind".localized()
+    static let weatherDetail = "weatherDetail".localized()
     
     static let sydney = "Sydney".localized()
     static let melbourne = "Melbourne".localized()

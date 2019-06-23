@@ -13,6 +13,7 @@ struct Constant {
     
     struct API {
         static let weatherEndPoint = "/data/2.5/weather"
+        static let imageEndPoint = "/img/w/%@"
     }
     
     struct Error {
@@ -35,6 +36,8 @@ struct Localisable {
     static let Yes = "Yes".localized()
     static let No = "No".localized()
     static let somethingWrong = "somethingWrong".localized()
+    static let jsonFailure = "jsonFailure".localized()
+    static let jsonParsing = "jsonParsing".localized()
     static let responseNull = "responseNull".localized()
 
 }

@@ -25,6 +25,12 @@ class SelectionViewController: UITableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let backgroundImage = UIImageView(image: UIImage(named: "background.png"))
+        self.tableView.backgroundView = backgroundImage
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

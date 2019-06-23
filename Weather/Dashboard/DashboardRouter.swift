@@ -10,11 +10,13 @@ import UIKit
 
 @objc protocol DashboardRoutingLogic
 {
+    func routeToSetting(segue: UIStoryboardSegue?)
 }
 
 protocol DashboardDataPassing
 {
-  var dataStore: DashboardDataStore? { get }
+    var dataStore: DashboardDataStore? { get }
+    func refreshWeather()
 }
 
 class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing
@@ -22,4 +24,16 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing
   weak var viewController: DashboardViewController?
   var dataStore: DashboardDataStore?
   
+    func refreshWeather() {
+        viewController?.refreshWeather()
+    }
+    
+    func routeToSetting(segue: UIStoryboardSegue?)
+    {
+        if let setting = segue?.destination as? SettingViewController {
+            
+            setting.dashboard = self
+        }
+    }
+
 }

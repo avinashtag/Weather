@@ -11,7 +11,9 @@ import UIKit
 protocol DashboardDisplayLogic: class
 {
     func display(error: Constant.Error)
-    func display(weather: [Weather.Data])
+    func display(weather: Weather.View)
+    var currentTheme: Setting.Theme { get}
+    func refreshWeather()
 }
 
 class DashboardViewController: UIViewController
@@ -19,12 +21,8 @@ class DashboardViewController: UIViewController
 
     @IBOutlet weak var weatherDetailList: UITableView!
     @IBOutlet weak var weatherDetailListHeader: UIView!
-    @IBOutlet weak var cityName: UITextField!
-    @IBOutlet weak var rightView: UIView!
 
-    private var weather: [Weather.Data]!
-    private var cityDaSource: Weather.Selection!
-    private var citySelectionController: SelectionViewController!
+    private var weather: Weather.View!
 
     var interactor: DashboardBusinessLogic?
     var router: (NSObjectProtocol & DashboardRoutingLogic & DashboardDataPassing)?
@@ -57,9 +55,7 @@ class DashboardViewController: UIViewController
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        let dataSource = Weather.Datasource()
-        weather = [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind]
-        cityDaSource = Weather.Selection()
+        weather = Weather.View()
     }
     
     // MARK: Routing
@@ -81,54 +77,24 @@ class DashboardViewController: UIViewController
         super.viewDidLoad()
         
         weatherDetailList.accessibilityIdentifier = "weatherDetailList"
-        cityName.text = cityDaSource.selected.name
-        citySelectionController = self.storyboard?.instantiateViewController(withIdentifier: "SelectionViewControllerID") as? SelectionViewController
-        citySelectionController.presentationLogic = self
-        cityName.rightView = rightView
-        cityName.rightViewMode = .always
         weatherDetailList.addRefreshControl(title: Localisable.refreshMessage) {
-            self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
+            self.interactor?.currentWeather(request: Weather.Request(cityName: self.theme.city.name, country: self.theme.city.country, appid: Constant.apiKey))
         }
-        self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
+        self.interactor?.currentWeather(request: Weather.Request(cityName: self.theme.city.name, country: self.theme.city.country, appid: Constant.apiKey))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func reloadView()  {
-        self.weather[0].info = cityDaSource.selected.name
         self.weatherDetailList.reloadData()
     }
     
 }
 
-// MARK: Textfield Delegate
-
-extension DashboardViewController: UITextFieldDelegate{
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        showCitySelection()
-        return false
-    }
-    
-    func showCitySelection(){
-      
-        let anchor = cityName.bounds
-        guard let popover = citySelectionController else { return }
-        popover.tableView.reloadData()
-        
-        let maxContentSize = CGSize(width: self.view.bounds.width * 0.8, height: (self.view.bounds.height - anchor.origin.y) * 0.8)
-        
-        popover.preferredContentSize = popover.prefferedSize(maxSize: maxContentSize)
-        popover.modalPresentationStyle = UIModalPresentationStyle.popover
-        popover.popoverPresentationController?.delegate =  self
-        popover.popoverPresentationController?.sourceView = cityName
-        popover.popoverPresentationController?.sourceRect = anchor
-        popover.popoverPresentationController?.permittedArrowDirections = .up
-        
-        self.present(popover, animated: true) {
-            
-        }
-
-    }
-}
 
 // MARK: Tableview Delegate
 
@@ -145,19 +111,24 @@ extension DashboardViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weather.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as? WeatherCell else { return UITableViewCell() }
         
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.black.cgColor
-
-        let data = weather[indexPath.row]
-        cell.name.text = data.name
-        cell.value.text = data.info
+        cell.city.text = weather.city
+        cell.wind.text = weather.wind
+        cell.temprature.text = weather.temprature
+        cell.updateDate.text = weather.updateTime
+        cell.condition.text = weather.weatherCondition
+        cell.shortDescription.text = weather.weatherConditionShort
+        if let imageUrl = weather.imageUrl{
+            cell.conditionImage.image(url: imageUrl) { (data) in
+                
+            }
+        }
         return cell
     }
     
@@ -166,60 +137,31 @@ extension DashboardViewController: UITableViewDataSource{
 // MARK: DashboardDisplayLogic
 
 extension DashboardViewController: DashboardDisplayLogic{
+  
+    var currentTheme: Setting.Theme {
+        return self.theme
+    }
     
     func display(error: Constant.Error) {
 
         weatherDetailList.refreshControl?.endRefreshing()
-        let dataSource = Weather.Datasource()
-        self.display(weather: [dataSource.city, dataSource.updatedTime, dataSource.weatherInfo, dataSource.temperature, dataSource.wind])
+        weather = Weather.View()
+        self.reloadView()
         self.present(error: error) {
             
         }
     }
     
-    func display(weather: [Weather.Data]) {
+    func display(weather: Weather.View) {
         weatherDetailList.refreshControl?.endRefreshing()
         self.weather = weather
         self.reloadView()
     }
-}
-
-// MARK: SelectionPresentationLogic
-
-extension DashboardViewController: SelectionPresentationLogic{
-    func numberOfSections() -> Int {
-        return 1
-    }
     
-    func numberOfRowsInSection(section: Int) -> Int {
-        return cityDaSource.cities.count
-    }
-    
-    func titleForRowAt( indexPath: IndexPath) -> (String, UITableViewCell.AccessoryType){
-        var accessory = UITableViewCell.AccessoryType.none
-        if cityDaSource.cities[indexPath.row] == cityDaSource.selected{
-            accessory = UITableViewCell.AccessoryType.checkmark
-        }
-        return (cityDaSource.cities[indexPath.row].name, accessory)
-    }
-    
-    func didSelectRowAt(indexPath: IndexPath) {
-        citySelectionController.dismiss(animated: true) {
-            self.cityDaSource.selected = self.cityDaSource.cities[indexPath.row]
-            self.cityName.text = self.cityDaSource.selected.name
-            self.interactor?.currentWeather(request: Weather.Request(cityName: self.cityDaSource.selected.name, country: self.cityDaSource.selected.country, appid: Constant.apiKey))
-        }
-    }
-    
-    
-}
-
-extension DashboardViewController: UIPopoverPresentationControllerDelegate{
-    public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return .none
+    func refreshWeather(){
+        self.interactor?.currentWeather(request: Weather.Request(cityName: self.theme.city.name, country: self.theme.city.country, appid: Constant.apiKey))
     }
 }
-
 
 extension Localisable{
     static let refreshMessage = "RefreshMessage".localized()

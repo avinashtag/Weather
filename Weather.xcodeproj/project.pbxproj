@@ -66,6 +66,24 @@
 		B90A55FA22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
 		B90A55FB22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
 		B90A55FC22A954DD0099E38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A55F922A954DD0099E38D /* UITableView+Extension.swift */; };
+		B91CE6EC22BE3F3000D6A608 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E622BE3F3000D6A608 /* SettingPresenter.swift */; };
+		B91CE6ED22BE3F3000D6A608 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E622BE3F3000D6A608 /* SettingPresenter.swift */; };
+		B91CE6EE22BE3F3000D6A608 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E622BE3F3000D6A608 /* SettingPresenter.swift */; };
+		B91CE6EF22BE3F3000D6A608 /* SettingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E722BE3F3000D6A608 /* SettingWorker.swift */; };
+		B91CE6F022BE3F3000D6A608 /* SettingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E722BE3F3000D6A608 /* SettingWorker.swift */; };
+		B91CE6F122BE3F3000D6A608 /* SettingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E722BE3F3000D6A608 /* SettingWorker.swift */; };
+		B91CE6F222BE3F3000D6A608 /* SettingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E822BE3F3000D6A608 /* SettingRouter.swift */; };
+		B91CE6F322BE3F3000D6A608 /* SettingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E822BE3F3000D6A608 /* SettingRouter.swift */; };
+		B91CE6F422BE3F3000D6A608 /* SettingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E822BE3F3000D6A608 /* SettingRouter.swift */; };
+		B91CE6F522BE3F3000D6A608 /* SettingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E922BE3F3000D6A608 /* SettingModels.swift */; };
+		B91CE6F622BE3F3000D6A608 /* SettingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E922BE3F3000D6A608 /* SettingModels.swift */; };
+		B91CE6F722BE3F3000D6A608 /* SettingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6E922BE3F3000D6A608 /* SettingModels.swift */; };
+		B91CE6F822BE3F3000D6A608 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EA22BE3F3000D6A608 /* SettingViewController.swift */; };
+		B91CE6F922BE3F3000D6A608 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EA22BE3F3000D6A608 /* SettingViewController.swift */; };
+		B91CE6FA22BE3F3000D6A608 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EA22BE3F3000D6A608 /* SettingViewController.swift */; };
+		B91CE6FB22BE3F3000D6A608 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EB22BE3F3000D6A608 /* SettingInteractor.swift */; };
+		B91CE6FC22BE3F3000D6A608 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EB22BE3F3000D6A608 /* SettingInteractor.swift */; };
+		B91CE6FD22BE3F3000D6A608 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91CE6EB22BE3F3000D6A608 /* SettingInteractor.swift */; };
 		F23B11C70C009F5979887883 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1B44C6E4396881587AD740 /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +140,12 @@
 		B90A55F022A82A6F0099E38D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B90A55F522A94F3B0099E38D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B90A55F922A954DD0099E38D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		B91CE6E622BE3F3000D6A608 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		B91CE6E722BE3F3000D6A608 /* SettingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWorker.swift; sourceTree = "<group>"; };
+		B91CE6E822BE3F3000D6A608 /* SettingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRouter.swift; sourceTree = "<group>"; };
+		B91CE6E922BE3F3000D6A608 /* SettingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModels.swift; sourceTree = "<group>"; };
+		B91CE6EA22BE3F3000D6A608 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B91CE6EB22BE3F3000D6A608 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractor.swift; sourceTree = "<group>"; };
 		ED1B44C6E4396881587AD740 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE0716CF6FD407153A321CD /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		FADD81D2321736151C62A898 /* Pods-WeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherTests.release.xcconfig"; path = "Target Support Files/Pods-WeatherTests/Pods-WeatherTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +231,7 @@
 				B90A55EB22A7C8290099E38D /* Utility */,
 				B90A55CB22A7A2C60099E38D /* Weather Api */,
 				B90A55AD22A79EF50099E38D /* Dashboard */,
+				B91CE6E522BE3F1800D6A608 /* Setting */,
 				B90A55C622A79F370099E38D /* Support */,
 			);
 			path = Weather;
@@ -277,6 +302,19 @@
 				B90A55F922A954DD0099E38D /* UITableView+Extension.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		B91CE6E522BE3F1800D6A608 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B91CE6E622BE3F3000D6A608 /* SettingPresenter.swift */,
+				B91CE6E722BE3F3000D6A608 /* SettingWorker.swift */,
+				B91CE6E822BE3F3000D6A608 /* SettingRouter.swift */,
+				B91CE6E922BE3F3000D6A608 /* SettingModels.swift */,
+				B91CE6EA22BE3F3000D6A608 /* SettingViewController.swift */,
+				B91CE6EB22BE3F3000D6A608 /* SettingInteractor.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,19 +593,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A55F622A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
+				B91CE6F822BE3F3000D6A608 /* SettingViewController.swift in Sources */,
+				B91CE6F222BE3F3000D6A608 /* SettingRouter.swift in Sources */,
 				B90A55C022A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A558022A79D4D0099E38D /* AppDelegate.swift in Sources */,
 				B90A55DC22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55E822A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BD22A79F0D0099E38D /* DashboardModels.swift in Sources */,
 				B90A55FA22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
+				B91CE6EC22BE3F3000D6A608 /* SettingPresenter.swift in Sources */,
 				B90A55F122A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E022A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55BA22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
 				B90A55C822A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55ED22A7C83E0099E38D /* String+Extension.swift in Sources */,
+				B91CE6F522BE3F3000D6A608 /* SettingModels.swift in Sources */,
+				B91CE6EF22BE3F3000D6A608 /* SettingWorker.swift in Sources */,
 				B90A55B722A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55B422A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
+				B91CE6FB22BE3F3000D6A608 /* SettingInteractor.swift in Sources */,
 				B90A55C322A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55CD22A7A2DE0099E38D /* Constants.swift in Sources */,
 				B90A55E422A7A8170099E38D /* APIClient.swift in Sources */,
@@ -579,19 +623,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A55F722A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
+				B91CE6F922BE3F3000D6A608 /* SettingViewController.swift in Sources */,
+				B91CE6F322BE3F3000D6A608 /* SettingRouter.swift in Sources */,
 				B90A559522A79D4F0099E38D /* WeatherTests.swift in Sources */,
 				B90A55C122A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A55DD22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55E922A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BB22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
 				B90A55FB22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
+				B91CE6ED22BE3F3000D6A608 /* SettingPresenter.swift in Sources */,
 				B90A55F222A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E122A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C422A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55C922A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55EE22A7C83E0099E38D /* String+Extension.swift in Sources */,
+				B91CE6F622BE3F3000D6A608 /* SettingModels.swift in Sources */,
+				B91CE6F022BE3F3000D6A608 /* SettingWorker.swift in Sources */,
 				B90A55B522A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
 				B90A55BE22A79F0D0099E38D /* DashboardModels.swift in Sources */,
+				B91CE6FC22BE3F3000D6A608 /* SettingInteractor.swift in Sources */,
 				B90A55B822A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55CE22A7A2DE0099E38D /* Constants.swift in Sources */,
 				B90A55E522A7A8170099E38D /* APIClient.swift in Sources */,
@@ -603,19 +653,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A55F822A94F3B0099E38D /* UIViewController+Extension.swift in Sources */,
+				B91CE6FA22BE3F3000D6A608 /* SettingViewController.swift in Sources */,
+				B91CE6F422BE3F3000D6A608 /* SettingRouter.swift in Sources */,
 				B90A55A022A79D4F0099E38D /* WeatherUITests.swift in Sources */,
 				B90A55C222A79F0D0099E38D /* DashboardViewController.swift in Sources */,
 				B90A55DE22A7A6FC0099E38D /* EndPoint.swift in Sources */,
 				B90A55EA22A7AB990099E38D /* SelectionViewController.swift in Sources */,
 				B90A55BC22A79F0D0099E38D /* DashboardRouter.swift in Sources */,
 				B90A55FC22A954DD0099E38D /* UITableView+Extension.swift in Sources */,
+				B91CE6EE22BE3F3000D6A608 /* SettingPresenter.swift in Sources */,
 				B90A55F322A82A6F0099E38D /* Date+Extension.swift in Sources */,
 				B90A55E222A7A7A60099E38D /* Client.swift in Sources */,
 				B90A55C522A79F0D0099E38D /* DashboardInteractor.swift in Sources */,
 				B90A55CA22A7A16D0099E38D /* WeatherCell.swift in Sources */,
 				B90A55EF22A7C83E0099E38D /* String+Extension.swift in Sources */,
+				B91CE6F722BE3F3000D6A608 /* SettingModels.swift in Sources */,
+				B91CE6F122BE3F3000D6A608 /* SettingWorker.swift in Sources */,
 				B90A55B622A79F0D0099E38D /* DashboardPresenter.swift in Sources */,
 				B90A55BF22A79F0D0099E38D /* DashboardModels.swift in Sources */,
+				B91CE6FD22BE3F3000D6A608 /* SettingInteractor.swift in Sources */,
 				B90A55B922A79F0D0099E38D /* DashboardWorker.swift in Sources */,
 				B90A55CF22A7A2DE0099E38D /* Constants.swift in Sources */,
 				B90A55E622A7A8170099E38D /* APIClient.swift in Sources */,

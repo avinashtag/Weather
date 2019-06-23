@@ -34,8 +34,8 @@ extension UITableView{
         
         self.refreshControlTarget  = completion
         self.refreshControl = Extension.refreshcontrol
-        self.refreshControl?.tintColor = .black
-        self.refreshControl?.attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.black])
+        self.refreshControl?.tintColor = .white
+        self.refreshControl?.attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white])
         self.refreshControl?.addTarget(self, action: #selector(refreshTarget(sender:)), for: .valueChanged)
     }
     

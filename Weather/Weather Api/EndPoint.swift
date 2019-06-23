@@ -34,6 +34,12 @@ extension Endpoint {
         return request
     }
     
+    var imageUrl: URL?{
+        var components = URLComponents(string: base)!
+        components.path = path
+        return components.url
+    }
+    
     var hosname: String {
         return base
     }
@@ -41,6 +47,7 @@ extension Endpoint {
 
 enum Calls {
     case weather
+    case weatherIcon(String)
 }
 
 extension Calls: Endpoint {
@@ -67,6 +74,7 @@ extension Calls: Endpoint {
         switch self {
             
         case .weather : return Constant.API.weatherEndPoint
+        case let .weatherIcon(icon) : return String(format: Constant.API.imageEndPoint, icon)
         }
     }
 }
