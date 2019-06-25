@@ -182,6 +182,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="yaI-Y5-kZ1"/>
                     <connections>
+                        <outlet property="setting" destination="tfl-in-VuU" id="LYQ-5O-xUN"/>
                         <outlet property="weatherDetailList" destination="rd3-u3-ViP" id="3Dv-Mh-Twm"/>
                         <outlet property="weatherDetailListHeader" destination="83F-sg-fOV" id="xZb-jl-RvW"/>
                     </connections>
@@ -209,6 +210,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwT-eZ-BhO">
                                             <rect key="frame" x="10" y="5" width="394" height="34"/>
                                             <color key="tintColor" red="0.48806983230000001" green="0.42761087419999999" blue="0.41083699460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cityName"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -242,7 +244,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tME-AU-fFR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Vd-zI-m8r" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="dashboardNavigation" automaticallyAdjustsScrollViewInsets="NO" id="0Vd-zI-m8r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wuI-6L-Bu1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -295,6 +297,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sydney" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-0h-WuQ">
                                                     <rect key="frame" x="50.5" y="11" width="353.5" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="citySelection"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>

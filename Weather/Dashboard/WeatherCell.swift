@@ -23,6 +23,14 @@ class WeatherCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        city.accessibilityIdentifier = "Cellcity"
+        wind.accessibilityIdentifier = "Cellwind"
+        temprature.accessibilityIdentifier = "Celltemprature"
+        updateDate.accessibilityIdentifier = "CellupdateDate"
+        shortDescription.accessibilityIdentifier = "CellshortDescription"
+        condition.accessibilityIdentifier = "Cellcondition"
+        conditionImage.accessibilityIdentifier = "CellconditionImage"
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

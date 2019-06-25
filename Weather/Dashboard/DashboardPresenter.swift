@@ -54,7 +54,7 @@ extension DashboardPresenter{
         }
     }
     
-    private func parse(weather: Weather.Result) -> Weather.View {
+    func parse(weather: Weather.Result) -> Weather.View {
         
         let theme = viewController!.currentTheme
         var model = Weather.View()

@@ -21,6 +21,7 @@ class DashboardViewController: UIViewController
 
     @IBOutlet weak var weatherDetailList: UITableView!
     @IBOutlet weak var weatherDetailListHeader: UIView!
+    @IBOutlet weak var setting: UIButton!
 
     private var weather: Weather.View!
 
@@ -76,6 +77,7 @@ class DashboardViewController: UIViewController
     {
         super.viewDidLoad()
         
+        setting.accessibilityIdentifier = "settings"
         weatherDetailList.accessibilityIdentifier = "weatherDetailList"
         weatherDetailList.addRefreshControl(title: Localisable.refreshMessage) {
             self.interactor?.currentWeather(request: Weather.Request(cityName: self.theme.city.name, country: self.theme.city.country, appid: Constant.apiKey))

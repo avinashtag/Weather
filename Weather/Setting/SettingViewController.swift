@@ -74,11 +74,15 @@ class SettingViewController: UITableViewController, SettingDisplayLogic
     {
         super.viewDidLoad()
         
+        self.tableView.accessibilityIdentifier = "settingsTable"
+        self.windSegment.accessibilityIdentifier = "windSegment"
+        self.tempratureSegment.accessibilityIdentifier = "tempratureSegment"
         let currentTheme = self.theme
 
         cityName.text = currentTheme.city.name
         citySelectionController = self.storyboard?.instantiateViewController(withIdentifier: "SelectionViewControllerID") as? SelectionViewController
         citySelectionController.presentationLogic = self
+        citySelectionController.accessibilityLabel = "citySelectionPopover"
         cityName.rightView = rightView
         cityName.rightViewMode = .always
         
